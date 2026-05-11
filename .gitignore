@@ -1,0 +1,76 @@
+# =============================================================
+# Linux 内核源码树 .gitignore
+# =============================================================
+
+# ----- 编译生成的内核镜像 -----
+vmlinux
+vmlinux.o
+vmlinuz
+System.map
+Module.symvers
+modules.builtin
+modules.order
+
+arch/*/boot/Image
+arch/*/boot/zImage
+arch/*/boot/uImage
+arch/*/boot/compressed/vmlinux
+
+# ----- 目标文件与内核模块 -----
+*.o
+*.ko
+*.a
+*.s
+*.mod.c
+*.mod.o
+*.order
+*.symvers
+
+# ----- 编译命令缓存（kbuild .cmd 文件）-----
+.*.cmd
+.*.d
+
+# ----- 临时中间文件 -----
+.tmp_*
+.missing-syscalls.d
+.version
+
+# ----- 内核配置 -----
+.config
+.config.old
+include/config/
+include/generated/
+
+# ----- DTB 编译产物（保留 .dts/.dtsi 源码）-----
+*.dtb
+*.dtb.tmp
+*.dtb.d.dtc.tmp
+*.dtb.d.pre.tmp
+*.dtb.dts.tmp
+.*.dtb.d.dtc.tmp
+.*.dtb.d.pre.tmp
+.*.dtb.dts.tmp
+
+# ----- kbuild 临时目录 -----
+.tmp_versions/
+
+# ----- clangd 缓存 -----
+.cache/
+compile_commands.json
+
+# ----- 生成的头文件 -----
+include/generated/
+arch/*/include/generated/
+
+# ----- VDSO 编译产物 -----
+arch/*/vdso/vdso.so
+arch/*/vdso/vdso.so.dbg
+arch/*/vdso/vdso32.so
+arch/*/vdso/vdso32.so.dbg
+
+# ----- 其他工具产物 -----
+tags
+TAGS
+cscope.*
+*.orig
+*.rej

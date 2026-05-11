@@ -46,10 +46,10 @@
 	compatible = "fsl,imx6ull-14x14-evk", "fsl,imx6ull";
 
 	beep {
+		compatible = "alientek,beep";
 		pinctrl-names = "default";
 		pinctrl-0 = <&beep_pins>;
-		beep-gpio = <&gpio5 1 GPIO_ACTIVE_HIGH>;
-		compatible = "df_beep";
+		beep-gpio = <&gpio5 1 GPIO_ACTIVE_LOW>;
 		status = "okay";
 	};
 
@@ -62,6 +62,16 @@
 		compatible = "df_key";
 		status = "okay";
 	};
+
+	led_ctrl {
+		compatible = "alientek,led";
+		reg = <0x020E0068 0x04    /* SW_MUX_GPIO1_IO03 */
+           0x0209C000 0x04    /* GPIO1_DR          */
+           0x0209C004 0x04    /* GPIO1_GDIR        */
+           0x020E02F4 0x04    /* SW_PAD_GPIO1_IO03 */
+           0x020C406C 0x04>;  /* CCM_CCGR1         */
+		status = "okay";
+	};
 };
 
 &iomuxc {
@@ -71,6 +81,8 @@
 		>;
 	};
 };
+
+
 
 &clks {
 	assigned-clocks = <&clks IMX6UL_CLK_PLL3_PFD2>;
