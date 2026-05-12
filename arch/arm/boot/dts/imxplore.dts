@@ -54,7 +54,8 @@
 	};
 
 	key {
-		compatible = "alientek,key";
+		compatible = "alientek,key-input";  /* 切换到 Input 子系统驱动 */
+		/* 改回 "alientek,key" 可切换到旧版 misc 驱动 */
 		pinctrl-names = "default";
 		pinctrl-0 = <&key_pins>;
 		key-gpio = <&gpio1 18 GPIO_ACTIVE_LOW>;
